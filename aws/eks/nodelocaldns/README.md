@@ -14,6 +14,11 @@ This example shows how to deploy an Amazon Elastic Kubernetes Service (EKS) clus
 
 1. Clone this repository to your local machine.
 
+```
+git clone https://github.com/deliveryhero/helm-charts/tree/master/stable/node-local-dns
+cd aws/eks/nodelocaldns
+```
+
 2. Create an Amazon EKS cluster by running the following command in your terminal:
 
 ```
