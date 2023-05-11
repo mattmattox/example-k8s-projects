@@ -1,0 +1,28 @@
+#cloud-config
+
+# Set the local hostname and instance ID
+local-hostname: ${name}
+instance-id: ubuntu-${name}
+
+# Configure the network settings
+network:
+  version: 2
+  ethernets:
+    ens192:
+      dhcp4: false
+      addresses:
+        - ${ipv4_address}/24
+      gateway4: ${ipv4_gateway}
+      nameservers:
+        search: [home]
+        addresses: [${dns_server_1}, ${dns_server_2}]
+
+# Configure the growpart settings
+growpart:
+  mode: auto
+  devices: ['/dev/sda2']
+  ignore_growroot_disabled: true
+
+# Configure wait-on-network settings
+wait-on-network:
+  ipv4: true
